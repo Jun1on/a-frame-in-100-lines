@@ -1,46 +1,38 @@
 import { getFrameMetadata } from '@coinbase/onchainkit/frame';
 import type { Metadata } from 'next';
-import { NEXT_PUBLIC_URL } from './config';
 
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Story time',
+      label: 'Download Extension',
     },
     {
-      action: 'tx',
-      label: 'Send Base Sepolia',
-      target: `${NEXT_PUBLIC_URL}/api/tx`,
-      postUrl: `${NEXT_PUBLIC_URL}/api/tx-success`,
+      action: 'link',
+      label: 'Learn More',
+      target: 'https://uniswap.org'
     },
   ],
-  image: {
-    src: `${NEXT_PUBLIC_URL}/park-3.png`,
-    aspectRatio: '1:1',
-  },
-  input: {
-    text: 'Tell me a story',
-  },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+  image: '/ext.screenshot.png',
+  post_url: 'https://yourdomain.com/api/frame'
 });
 
 export const metadata: Metadata = {
-  title: 'zizzamia.xyz',
-  description: 'LFG',
+  title: 'Uniswap Extension',
+  description: 'Download the Uniswap Extension and Learn More',
   openGraph: {
-    title: 'zizzamia.xyz',
-    description: 'LFG',
-    images: [`${NEXT_PUBLIC_URL}/park-1.png`],
+    title: 'Uniswap Extension',
+    description: 'Download the Uniswap Extension and Learn More',
+    images: ['/ext.screenshot.png']
   },
   other: {
-    ...frameMetadata,
-  },
+    ...frameMetadata
+  }
 };
 
 export default function Page() {
   return (
     <>
-      <h1>zizzamia.xyz</h1>
+      <h1>Uniswap Extension</h1>
     </>
   );
 }
