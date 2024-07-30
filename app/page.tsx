@@ -1,6 +1,6 @@
 import { getFrameMetadata } from '@coinbase/onchainkit/frame';
 import type { Metadata } from 'next';
-import { NEXT_PUBLIC_URL } from './config';
+const HARDCODED_URL = 'https://pls-lgtx.vercel.app/'
 
 const frameMetadata = getFrameMetadata({
   buttons: [
@@ -15,8 +15,7 @@ const frameMetadata = getFrameMetadata({
       target: 'https://uniswap.org'
     },
   ],
-  image: `/screenshot.png`,
-  post_url: 'https://yourdomain.com/api/frame'
+  image: HARDCODED_URL + 'screenshot.png',
 });
 
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Uniswap Extension',
     description: 'Download the Uniswap Extension and Learn More',
-    images: ['/screenshot.png']
+    images: [HARDCODED_URL + 'screenshot.png']
   },
   other: {
     ...frameMetadata
