@@ -5,23 +5,18 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Story time',
+      action: 'link',
+      label: 'Download Extension',
+      target: 'https://chromewebstore.google.com/detail/uniswap-extension/nnpmfplkfogfpmcngplhnbdnnilmcdcg'
     },
     {
-      action: 'tx',
-      label: 'Send Base Sepolia',
-      target: `${NEXT_PUBLIC_URL}/api/tx`,
-      postUrl: `${NEXT_PUBLIC_URL}/api/tx-success`,
+      action: 'link',
+      label: 'Learn More',
+      target: 'https://uniswap.org'
     },
   ],
-  image: {
-    src: `${NEXT_PUBLIC_URL}/park-3.png`,
-    aspectRatio: '1:1',
-  },
-  input: {
-    text: 'Tell me a story',
-  },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+  image: `/screenshot.png`,
+  post_url: 'https://yourdomain.com/api/frame'
 });
 
 export const metadata: Metadata = {
@@ -30,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Uniswap Extension',
     description: 'Download the Uniswap Extension and Learn More',
-    images: ['/ext.screenshot.png']
+    images: ['/screenshot.png']
   },
   other: {
     ...frameMetadata
